@@ -65,6 +65,10 @@ class User (Resource):
 
 api.add_resource(User, "/user/<int:uid>")
 
+@app.route('/')
+def hello_world():
+    return "Hello there!"
+
 #for testing
 #app.run(debug=True)
 
