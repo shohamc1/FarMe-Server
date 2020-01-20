@@ -1,12 +1,1 @@
-data_original_template.json
-.vscode/
-main.py
-database.db
-server_original.py
-Pipfile
-Procfile
-data.json
-database.db
-main.py
-Pipfile.lock
-deployinfo.py
+env/

@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>FarMe Data - Edit</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <div style="max-width: 540px; margin-left: 20px;">
+        <form method="POST" action='/edit/{{data_item.device_id}}'> {% csrf_token %}
+            <div class="form-group">
+                <label for="device_id">Device ID</label>
+                <input name="device_id" type="number" value="{{ data_item.device_id }}" class="form-control" placeholder="Enter Device ID">
+            </div>
+
+            <div class="form-group">
+                <label for="latitide">Latitude</label>
+                <input name="latitude" type="number" step="any" value="{{ data_item.latitude }}" class="form-control" placeholder="Enter Latitude">
+            </div>
+
+            <div class="form-group">
+                <label for="longitude">Longitude</label>
+                <input name="longitude" type="number" step="any" value="{{ data_item.longitude }}" class="form-control" placeholder="Enter Longitude">
+            </div>
+
+            <div class="form-group">
+                <label for="amb_ll">Abient Light Level</label>
+                <input name="amb_ll" type="number" step="any" value="{{ data_item.amb_ll }}" class="form-control" placeholder="Enter Ambient Light Level">
+            </div>
+
+            <div class="form-group">
+                <label for="temp">Temperature</label>
+                <input name="temp" type="number" step="any" value="{{ data_item.temp }}" class="form-control" placeholder="Enter Temperature">
+            </div>
+
+            <div class="form-group">
+                <label for="loc_humidity">Local Humidity</label>
+                <input name="loc_humidity" type="number" step="any" value="{{ data_item.loc_humidity }}" class="form-control" placeholder="Enter Local Humidity">
+            </div>
+
+            <div class="form-group">
+                <label for="sm1">Soil Moisture 1</label>
+                <input name="sm1" type="number" step="any" value="{{ data_item.sm1 }}" class="form-control" placeholder="Enter Soil Moisture 1">
+            </div>
+            
+            <div class="form-group">
+                <label for="sm2">Soil Moisture 2</label>
+                <input name="sm2" type="number" step="any" value="{{ data_item.sm2 }}" class="form-control" placeholder="Enter Soil Moisture 2">
+            </div>
+
+            <div class="form-group">
+                <label for="sm3">Soil Moisture 3</label>
+                <input name="sm3" type="number" step="any" value="{{ data_item.sm3 }}" class="form-control" placeholder="Enter Soil Moisture 3">
+            </div>
+
+            <div class="form-group">
+                <label for="sm4">Soil Moisture 4</label>
+                <input name="sm4" type="number" step="any" value="{{ data_item.sm4 }}" class="form-control" placeholder="Enter Soil Moisture 4">
+            </div>
+
+            <div class="form-group">
+                <label for="sm5">Soil Moisture 5</label>
+                <input name="sm5" type="number" step="any" value="{{ data_item.sm5 }}" class="form-control" placeholder="Enter Soil Moisture 5">
+            </div>
+
+            <div class="form-group">
+                <label for="sm6">Soil Moisture 6</label>
+                <input name="sm6" type="number" step="any" value="{{ data_item.sm6 }}" class="form-control" placeholder="Enter Soil Moisture 6">
+            </div>
+
+            <div class="form-group">
+                <label for="sm7">Soil Moisture 7</label>
+                <input name="sm7" type="number" step="any" value="{{ data_item.sm7 }}" class="form-control" placeholder="Enter Soil Moisture 7">
+            </div>
+
+            <div class="form-group">
+                <label for="sm8">Soil Moisture 8</label>
+                <input name="sm8" type="number" step="any" value="{{ data_item.sm8 }}" class="form-control" placeholder="Enter Soil Moisture 8">
+            </div>
+            
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        </div>
+    </body>
+</html>

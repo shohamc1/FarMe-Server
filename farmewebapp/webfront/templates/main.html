@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>FarMe Data</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    <body>
+        <div>
+        <h2>Sensor Data</h2><br>
+        <a href="/add"><button class="btn">Add new data</button></a>
+        <hr>
+        </div>
+
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Device ID</th>
+                <th>Latitude</th>
+                <th>Longtiude</th>
+                <th>Ambient Light Level</th>
+                <th>Temperature</th>
+                <th>Localised Ambient Humidity</th>
+                <th>Soil Moisture Sensor 1</th>
+                <th>Soil Moisture Sensor 2</th>
+                <th>Soil Moisture Sensor 3</th>
+                <th>Soil Moisture Sensor 4</th>
+                <th>Soil Moisture Sensor 5</th>
+                <th>Soil Moisture Sensor 6</th>
+                <th>Soil Moisture Sensor 7</th>
+                <th>Soil Moisture Sensor 8</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in data %}
+            <tr>
+                <td>{{ entry.device_id }}</td>
+                <td>{{ entry.latitude }}</td>
+                <td>{{ entry.longitude }}</td>
+                <td>{{ entry.amb_ll }}</td>
+                <td>{{ entry.temp }}</td>
+                <td>{{ entry.loc_humidity }}</td>
+                <td>{{ entry.sm1 }}</td>
+                <td>{{ entry.sm2 }}</td>
+                <td>{{ entry.sm3 }}</td>
+                <td>{{ entry.sm4 }}</td>
+                <td>{{ entry.sm5 }}</td>
+                <td>{{ entry.sm6 }}</td>
+                <td>{{ entry.sm7 }}</td>
+                <td>{{ entry.sm8 }}</td>
+                <td><a href='/edit/{{ entry.device_id }}'><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href='/delete/{{ entry.device_id }}'><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </body>
+</html>
