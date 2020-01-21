@@ -33,7 +33,6 @@
                 <th>Soil Moisture Sensor 7</th>
                 <th>Soil Moisture Sensor 8</th>
                 <th>Timestamp</th>
-                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -54,8 +53,6 @@
                 <td>{{ entry.sm7 }}</td>
                 <td>{{ entry.sm8 }}</td>
                 <td>{{ entry.timestamp }}</td>
-                <td><a href='/edit/{{ entry.device_id }}'><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td><a href='/delete/{{ entry.device_id }}'><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
             {% endfor %}
         </tbody>

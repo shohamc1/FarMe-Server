@@ -9,8 +9,40 @@
       </head>
     <body>
         <div>
-        <h2>Sensor Data </h2><br>
-        <a href="/add"><button class="btn">Add new data</button></a>
+        <h2>Sensor Data</h2><br>
+        <a href="/add"><button class="btn">Add new data</button></a><br><br>
+        
+        
+        <div id="container"></div>
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+        <script>
+            Highcharts.chart('container', {
+                responsive: {
+                    rules: [{condition: {maxWidth: 500}}]
+                },
+                chart: {
+                    type: 'line',
+                    backgroundColor: '#F0F0F0',
+                },
+                title: {
+                    text: 'Data over Time'
+                },
+                xAxis: {
+                    categories: [{% for entry in data %}'{{entry.timestamp|date:"d M Y" }} {{ entry.timestamp|time:"H:i:s" }}',{% endfor %}]
+                },
+                series: [{name:"Temperature", data: [{% for entry in data %}{{ entry.temp }},{% endfor %}]},
+                {name:"Ambient Light Level", data: [{% for entry in data %}{{ entry.amb_ll }},{% endfor %}]},
+                {name:"Ambient Humidity", data: [{% for entry in data %}{{ entry.loc_humidity }},{% endfor %}]},
+                {name:"Soil Moisture 1", data: [{% for entry in data %}{{ entry.sm1 }},{% endfor %}]},
+                {name:"Soil Moisture 2", data: [{% for entry in data %}{{ entry.sm2 }},{% endfor %}]},
+                {name:"Soil Moisture 3", data: [{% for entry in data %}{{ entry.sm3 }},{% endfor %}]},
+                {name:"Soil Moisture 4", data: [{% for entry in data %}{{ entry.sm4 }},{% endfor %}]},
+                {name:"Soil Moisture 5", data: [{% for entry in data %}{{ entry.sm5 }},{% endfor %}]},
+                {name:"Soil Moisture 6", data: [{% for entry in data %}{{ entry.sm6 }},{% endfor %}]},
+                {name:"Soil Moisture 7", data: [{% for entry in data %}{{ entry.sm7 }},{% endfor %}]},
+                {name:"Soil Moisture 8", data: [{% for entry in data %}{{ entry.sm8 }},{% endfor %}]},]
+            });
+          </script>
         <hr>
         </div>
 

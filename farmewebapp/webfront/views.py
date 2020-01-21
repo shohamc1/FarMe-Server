@@ -37,5 +37,5 @@ def delete (request, id):
     return HttpResponseRedirect (reverse('webfront:view_data'))
 
 def history (request, id):
-    data_objects = data.objects.all().filter(device_id=id)
+    data_objects = data.objects.all().order_by('timestamp').filter(device_id=id)
     return render (request, 'devicedata.html', {'data': data_objects})
