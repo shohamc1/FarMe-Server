@@ -3,7 +3,8 @@ from django.db import models
 # Create your models here.
 
 class data (models.Model):
-    device_id = models.IntegerField (primary_key=True, default=0)
+    id = models.IntegerField(primary_key=True, default=1)
+    device_id = models.IntegerField (default=0)
     latitude = models.DecimalField (default=0, max_digits=7, decimal_places=5)
     longitude = models.DecimalField (default=0, max_digits=7, decimal_places=5)
     amb_ll = models.DecimalField (default=0, max_digits=10, decimal_places=5)
@@ -17,3 +18,4 @@ class data (models.Model):
     sm6 = models.DecimalField (default=0, max_digits=10, decimal_places=5)
     sm7 = models.DecimalField (default=0, max_digits=10, decimal_places=5)
     sm8 = models.DecimalField (default=0, max_digits=10, decimal_places=5)
+    timestamp = models.DateTimeField(default='2000-01-01 12:00:00')

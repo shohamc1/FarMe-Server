@@ -9,7 +9,7 @@
       </head>
     <body>
         <div>
-        <h2>Sensor Data</h2><br>
+        <h2>Sensor Data </h2><br>
         <a href="/add"><button class="btn">Add new data</button></a>
         <hr>
         </div>
@@ -39,7 +39,7 @@
             <tbody>
             {% for entry in data %}
             <tr>
-                <td><a href='/view/{{ entry.device_id}}'><button class="btn">{{ entry.device_id }}</button></a></td>
+                <td>{{ entry.device_id }}</td>
                 <td>{{ entry.latitude }}</td>
                 <td>{{ entry.longitude }}</td>
                 <td>{{ entry.amb_ll }}</td>
@@ -53,7 +53,7 @@
                 <td>{{ entry.sm6 }}</td>
                 <td>{{ entry.sm7 }}</td>
                 <td>{{ entry.sm8 }}</td>
-                <td>{{ entry.timestamp }}</td>
+                <td>{{ entry.timestamp|date:"d M Y" }} {{ entry.timestamp|time:"H:i:s" }}</td>
                 <td><a href='/edit/{{ entry.device_id }}'><span class="glyphicon glyphicon-pencil"></span></a></td>
                 <td><a href='/delete/{{ entry.device_id }}'><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
