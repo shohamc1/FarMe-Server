@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import requests
+from google.cloud import logging
+
 #import pymysql 
 #pymysql.version_info = (1, 3, 13, "final", 0)
 #pymysql.install_as_MySQLdb()
@@ -78,16 +81,32 @@ WSGI_APPLICATION = 'farmewebapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'data',
-        'USER': 'postgres',
-        'PASSWORD': 'farme1234',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+if os.getenv('GAE_APPLICATION', None):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'data',
+            'USER': 'postgres',
+            'PASSWORD': 'farme1234',
+            'HOST': '/cloudsql/py-backend-264415:asia-southeast1:data-server',
+        }
     }
-}
+
+    DEBUG = False
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'data',
+            'USER': 'postgres',
+            'PASSWORD': 'farme1234',
+            'HOST': '127.0.0.1',
+            'PORT': '3306'
+        }
+    }
+
+    DEBUG = True
 
 
 # Password validation
@@ -127,3 +146,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            'datefmt' : "%d/%b/%Y %H:%M:%S"
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+   },
+}
+
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
