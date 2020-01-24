@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>FarMe Data</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      </head>
+    <body>
+        <div>
+        <h2>Location Data</h2>
+        <a href='/varedit/add'><button class="btn">Add new entry</button></a>
+        <hr>
+        </div>
+
+        <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Device ID</th>
+                <th>Latitude</th>
+                <th>Longtiude</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entry in data %}
+            <tr>
+                <td>{{ entry.device_id }}</td>
+                <td>{{ entry.latitude }}</td>
+                <td>{{ entry.longitude }}</td>
+                <td><a href='/varedit/varchange/{{ entry.device_id }}'><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <td><a href='/varedit/vardelete/{{ entry.device_id }}'><span class="glyphicon glyphicon-trash"></span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        </div>
+    </body>
+</html>

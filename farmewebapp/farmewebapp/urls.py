@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('webfront.urls'))
+    path('', include('webfront.urls')),
+    path('varedit/', include('varset.urls'))
 ]
